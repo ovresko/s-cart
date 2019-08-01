@@ -29,10 +29,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function is_vendor()
-    {
-        return 'is_vendor';
-    }
+    // public function GetIsVendorAttribute()
+    // {
+    //     return  $this->is_vendor;
+    // }
     public function orders()
     {
         return $this->hasMany('App\Models\ShopOrder', 'user_id', 'id');
@@ -42,6 +42,13 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\ShopProductLike', 'users_id', 'id');
     }
+
+    public function vendor()
+    {
+        return $this->hasOne('App\Models\ShopVendor', 'user_id', 'id');
+    }
+
+    
 
     //Send email reset password
     public function sendPasswordResetNotification($token)

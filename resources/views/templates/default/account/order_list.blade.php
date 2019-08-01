@@ -1,12 +1,11 @@
-@extends(SITE_THEME.'.shop_layout')
+ @extends(SITE_THEME.'.account.index')
 
-@section('main')
-<section >
-<div class="container">
-    <div class="row">
+ @section('account')
+ <section >
+ 
         <h2 class="title text-center">{{ $title }}</h2>
 @if (count($orders) ==0)
-    <div class="col-md-12 text-danger">
+    <div class="col-md-9 text-danger">
         {{ trans('language.profile.empty_order') }}
     </div>
 @else
@@ -96,8 +95,7 @@
   </table>
 
 @endif
-</div>
-</div>
+ 
 </section>
 @endsection
 

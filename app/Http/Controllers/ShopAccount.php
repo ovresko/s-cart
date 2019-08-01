@@ -8,22 +8,37 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use View;
 
 class ShopAccount extends GeneralController
 {
     public function __construct()
-    {
+    {  
+       
         parent::__construct();
+        
+
+    }
+   
+    public $user;
+    public function getUser()
+    {
+        if(empty($this->user))
+        {
+            $this->user = Auth::user();
+        }
+        return $this->user;
+           
     }
 
     public function index()
     {
-        $user = Auth::user();
-        $id   = $user->id;
-       
+       // $user = Auth::user();
+        $id   = $this->getUser()->id;
+         //dd($user);
         return view(SITE_THEME . '.account.index')->with(array(
             'title'       => trans('account.my_profile'),
-            'user'        => $user, 
+            'user'        =>  $this->getUser(), 
             'layout_page' => 'shop_profile',
         ));
     }
@@ -34,7 +49,7 @@ class ShopAccount extends GeneralController
         $id   = $user->id;
         return view(SITE_THEME . '.account.change_password')->with(array(
             'title'       => trans('account.change_password'),
-            'user'        => $user,
+            'user'        =>   $this->getUser(), 
             'layout_page' => 'shop_profile',
         ));
     }
@@ -76,6 +91,7 @@ class ShopAccount extends GeneralController
         return view(SITE_THEME . '.account.change_infomation')->with(array(
             'title'       => trans('account.change_infomation'),
             'dataUser'    => $dataUser,
+            'user'        =>   $this->getUser(), 
             'layout_page' => 'shop_profile',
         ));
     }
@@ -100,7 +116,7 @@ class ShopAccount extends GeneralController
         }
 
         $dataUser->update($request->all());
-        return redirect()->route('member.index')->with(['message' => trans('account.update_success')]);
+        return redirect()->route('member.index')->with(['message' => trans('account.update_success'),'user'        =>  $this->getUser(), ]);
     }
 
     /**

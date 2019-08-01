@@ -3,15 +3,22 @@
 @section('main')
 <div class="row">
         <div class="container">
-                <h2 class="title text-center">{{ $title }}</h2>
-                  @if (!empty($itemsList))
+          <div class="text-center">
+              <h2 class="title text-center">{{ $title }}</h2>
+              <p class="text-muted">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas corrupti aspernatur ipsam eveniet eos?</p>
+               
+          </div>
+             @if (!empty($itemsList))
                     @foreach ($itemsList as $item)
                         <div class="col-sm-3 col-xs-4">
                             <div class="product-image-wrapper product-single">
                               <div class="single-products">
                                 <div class="productinfo text-center product-box-{{ $item->id }}">
                                   <a href="{{ $item->getUrl() }}"><img src="{{ asset($item->getImage()) }}" alt="{{ $item->name }}" /></a>
-                                  <a href="{{ $item->getUrl() }}"><p>{{ $item->name }}</p></a>
+                                  <a href="{{ $item->getUrl() }}"><h3 class="title text-center">{{ $item->name }}</h3></a>
+                                  @if(!empty($item->description))
+                                    <p>{{ str_limit($item->description, $limit = 105, $end = '...')   }}</p>
+                                  @endif
                                 </div>
                               </div>
                             </div>

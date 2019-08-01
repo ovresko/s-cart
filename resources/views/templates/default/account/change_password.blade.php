@@ -1,11 +1,10 @@
-@extends(SITE_THEME.'.shop_layout')
+@extends(SITE_THEME.'.account.index')
 
-@section('main')
+@section('account')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-2">
-        </div>
-        <div class="col-md-8">
+      
+        <div class="col-md-9">
             <div class="card">
 
                 <div class="card-body">

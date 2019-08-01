@@ -19,7 +19,10 @@ class ShopVendor extends Model
     {
         return $this->orderBy('id', 'desc')->orderBy('sort', 'desc')->get();
     }
-
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
     public function getVendors($limit = null, $opt = null, $sortBy = null, $sortOrder = 'asc')
     {
         $query = $this->sort($sortBy, $sortOrder);

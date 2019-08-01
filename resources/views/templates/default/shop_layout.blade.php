@@ -32,6 +32,9 @@
     <link href="{{ asset(SITE_THEME_ASSET.'/css/animate.css')}}" rel="stylesheet">
     <link href="{{ asset(SITE_THEME_ASSET.'/css/main.css')}}" rel="stylesheet">
     <link href="{{ asset(SITE_THEME_ASSET.'/css/responsive.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnify/2.3.3/css/magnify.min.css" integrity="sha256-1PaUEmEsXX+AQ0MzViHErA7gMBWGKQdJw16/bvUw/Ss=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css" integrity="sha256-8rfHbJr+ju3Oc099jFJMR1xAPu8CTPHU8uP5J3X/VAY=" crossorigin="anonymous" />
+
     <!--[if lt IE 9]>
     <script src="{{ asset(SITE_THEME_ASSET.'/js/html5shiv.js')}}"></script>
     <script src="{{ asset(SITE_THEME_ASSET.'/js/respond.min.js')}}"></script>
@@ -97,7 +100,7 @@
 
 
   <section>
-    <div class="container">
+    <div class="container siteContainer">
       <div class="row">
         <div class="col-sm-12" id="breadcrumb">
           <!--breadcrumb-->
@@ -111,9 +114,9 @@
 
         <!--body-->
         @section('main')
-          @include(SITE_THEME.'.left')
+          {{-- @include(SITE_THEME.'.left') --}}
           @include(SITE_THEME.'.center')
-          @include(SITE_THEME.'.right')
+          {{-- @include(SITE_THEME.'.right') --}}
         @show
         <!--//body-->
 
@@ -130,8 +133,8 @@
 <script src="{{ asset(SITE_THEME_ASSET.'/js/jquery.prettyPhoto.js')}}"></script>
 <script src="{{ asset(SITE_THEME_ASSET.'/js/main.js')}}"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.7/bootstrap-notify.min.js"></script>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnify/2.3.3/js/jquery.magnify.min.js" integrity="sha256-M74W9+xmfK08P3NuYCtYIKONmYdSqgACMycCnR8uoaA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/js/lightgallery.min.js" integrity="sha256-GnThhVDusd6Mnhplk3lS6eX/C+Q9jaSR6KctYP8OlAo=" crossorigin="anonymous"></script>
 @stack('scripts')
 
     <script type="text/javascript">
@@ -142,6 +145,12 @@
           $('#total').html(formatNumber(parseInt({{ Cart::subtotal() }})+ parseInt($('#shipping').val())));
       });
     </script>
+ <script>
+  $(document).ready(function() {
+    $('.zoom').magnify();
+  });
+  </script>
+   
 
     <script type="text/javascript">
         function addToCart(id,instance = null,element = null){
@@ -221,7 +230,10 @@
         });
     }
 </script>
-
+ <script type="text/javascript">
+ $('#lightgallery').lightGallery();
+ 
+</script>
 <!--message-->
     @if(Session::has('message'))
     <script type="text/javascript">

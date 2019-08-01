@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class IsVendorField extends Migration
+class AddVendorDescription extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class IsVendorField extends Migration
      */
     public function up()
     {
-        Schema::table('shop_users', function (Blueprint $table) {
-            $table->integer('is_vendor');
+        Schema::table('shop_vendor', function (Blueprint $table) {
+            $table->string('description');
             //
         });
     }
@@ -26,8 +26,8 @@ class IsVendorField extends Migration
      */
     public function down()
     {
-        Schema::table('shop_users', function (Blueprint $table) {
-            $table->dropColumn('is_vendor');
+        Schema::table('shop_vendor', function (Blueprint $table) {
+            $table->dropColumn('description');
             //
         });
     }

@@ -1,5 +1,8 @@
   <header id="header"><!--header-->
-    <div class="header_top"><!--header_top-->
+    <div class="container siteBody">
+
+   
+    {{-- <div class="header_top"><!--header_top-->
       <div class="container">
         <div class="row">
           <div class="col-sm-6">
@@ -41,23 +44,35 @@
           </div>
         </div>
       </div>
-    </div><!--/header_top-->
+    </div><!--/header_top--> --}}
     <div class="header-middle"><!--header-middle-->
       <div class="container">
         <div class="row">
           <div class="col-sm-4">
             <div class="logo pull-left">
               <a href="{{ route('home') }}"><img style="width: 250px;" src="{{ asset(SITE_LOGO) }}" alt="" /></a>
-              <p class="small text-muted text-center">#1 place de marché en ligne en Algérie </p>
+              {{-- <p class="small text-muted text-center">#1 place de marché en ligne en Algérie </p> --}}
             </div>
           </div>
           <div class="col-sm-4">
             <div class="  ">
-              <form id="searchbox" method="get" action="{{ route('search') }}" >
+                <form id="searchbox" method="get" action="{{ route('search') }}" >
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                        <input type="text" class="form-control input-lg" placeholder="{{ trans('language.search_form.keyword') }}..." name="keyword"/>
+                        <span class="input-group-btn">
+                            <button class="btn btn-info btn-lg" type="button">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+              </form>
+              {{-- <form id="searchbox" method="get" action="{{ route('search') }}" >
                 <div class=" ">
                   <input type="text" class="form-control" placeholder="{{ trans('language.search_form.keyword') }}..." name="keyword">
                 </div>
-              </form>
+              </form> --}}
             </div>
           </div>
           <div class="col-sm-4">
@@ -89,7 +104,7 @@
     <div class="header-bottom"><!--header-bottom-->
       <div class="container">
         <div class="row">
-          <div class="col-sm-9">
+          <div class="col-sm-10">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -137,10 +152,12 @@
               </ul>
             </div>
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-2">
             <button class=" btn pull-right add-boutique">Créer ma boutique</button>
           </div>
         </div>
       </div>
     </div><!--/header-bottom-->
+
+  </div>
   </header><!--/header-->

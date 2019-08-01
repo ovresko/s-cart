@@ -14,19 +14,29 @@
                           <li class="list-group-item"> </span> <a href="{{ route('member.change_infomation') }}">{{ trans('account.change_infomation') }}</a></li>
                           <li class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <a href="{{ route('member.order_list') }}">{{ trans('account.order_list') }}</a></li>
                         
-                          @if ( $user->is_vendor())
+                           
+                         @if($user->is_vendor   == 1)
                           <li class="list-group-item"> </span> <a href="{{ route('member.change_password') }}">Ma boutique</a></li>
                           <li class="list-group-item"> </span> <a href="{{ route('member.change_password') }}">Mes articles</a></li>
                           <li class="list-group-item"> </span> <a href="{{ route('member.change_password') }}">Mes Commandes</a></li>
                           <li class="list-group-item"> </span> <a href="{{ route('member.change_password') }}">Mes Messages</a></li>
                         
-                            @endif
+                            @endif 
                   
                         </ul>
                       </div>
 
                     
         
+             
+        </div>
+        <div class="col-sm-9">
+
+                <h2 class="title text-center">{{ $title  }}</h2>
+                @section('account')
+               
+              @show
+ 
              
         </div>
      

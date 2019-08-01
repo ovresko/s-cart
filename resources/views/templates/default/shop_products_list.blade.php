@@ -77,8 +77,15 @@
 
 @section('filter')
   <form action="" method="GET" id="filter_sort">
-        <div class="pull-right">
-        <div>
+        <div class="pull-right filter-bar" style="display: flex;">
+
+     
+            <i class="fa fa-th-list" aria-hidden="true"></i>
+            <i class="fa fa-th-large" aria-hidden="true"></i>
+
+          <p>Tri : </p>
+        
+          <div>
             @php
               $queries = request()->except(['filter_sort','page']);
             @endphp

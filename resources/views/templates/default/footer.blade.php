@@ -24,7 +24,7 @@
         <div class="row">
           <div class="col-sm-3">
             <div class="single-widget">
-              <h2><a href="{{ route('home') }}"><img style="max-width: 150px;" src="{{  asset(SITE_LOGO) }}"></a></h2>
+              <h2><a href="{{ route('home') }}"><img style="max-width: 250px;" src="{{  asset(SITE_LOGO) }}"></a></h2>
              <ul class="nav nav-pills nav-stacked">
                <li>{{ $configsGlobal['title'] }}</li>
              </ul>
@@ -73,7 +73,7 @@
       <div class="container">
         <div class="row">
           <p class="pull-left">Copyright © 2018 <a href="{{ config('scart.homepage') }}">{{ config('scart.name') }} {{ config('scart.version') }}</a> Inc. All rights reserved.</p>
-          <p class="pull-right">Hosted by  <span><a target="_blank" href="https://giaiphap247.com">GiaiPhap247</a></span></p>
+          <p class="pull-right">By  <span><a target="_blank" href="#">Ovresko</a></span> with <i class="fa fa-heart" aria-hidden="true"></i></p>
             <!--
             S-Cart is free open source and you are free to remove the powered by S-cart if you want, but its generally accepted practise to make a small donation.
             Please donate via PayPal to https://www.paypal.me/LeLanh or Email: fastle.ktc@gmail.com
